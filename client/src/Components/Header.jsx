@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Home from './Home'
+
 
 export default function Header(props) {
   return (
@@ -19,7 +19,7 @@ export default function Header(props) {
                     <img src = '/images/search-icon.svg' alt ='' />
                 </SearchIcon>
             </Search>
-            <Nav>
+                <Nav>
                     <NavListWrap>
                         <NavList className = 'active'>
                             <a href='/home'>
@@ -55,10 +55,33 @@ export default function Header(props) {
                                 <span>Notifications</span>
                             </a>
                         </NavList>
+                        <User>
+                            <a href = '/'>
+                                <img src='/images/user.svg' alt = '' />
+                                <span>Me</span>
+                                <img src = '/images/down-icon.svg' alt = '' />
+                            </a>
+                            <SignOut>
+                                <a>
+                                    Sign Out
+                                </a>
+                            </SignOut>
+                        </User>
+                        <Work>
+                            <a href = '/'>
+                                <img src = '/images/nav-work.svg' alt = ''/>
+                                <span>
+                                    Work 
+                                    <img src = '/images/down-icon.svg' alt = '' />
+                                </span>
+                            </a>
+                        </Work>
                     </NavListWrap>
                 </Nav>
         </Content>
     </Container>
+  
+   
   )
 }
 
@@ -67,7 +90,7 @@ const Container = styled.div`
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     left: 0;
     padding: 0 24px;
-    position: fixed;
+    position: fixed; 
     top: 0;
     width: 100vw;
     z-index: 100;
@@ -78,7 +101,7 @@ const Content = styled.div`
     align-items: center;
     margin: 0 auto;
     min-height: 100%;
-    max-height: 1128px;
+    max-width: 1128px;
 `;
 
 const Logo = styled.span`
@@ -190,3 +213,47 @@ const NavList = styled.li`
         }
     }
 `;
+
+const SignOut = styled.div`
+    position: absolute;
+    top: 45px;
+    background: white;
+    border-radius: 0 0 5px 5px;
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+    transition-duration: 167ms;
+    text-align: center;
+    display: none;
+`;
+
+const User = styled(NavList)`
+    a > svg{
+        width: 24px;
+        border-radius: 50%;
+    }
+
+    a > img{
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+    }
+
+    span{
+        display: flex;
+        align-items: center;
+    }
+
+    &:hover{
+        ${SignOut}{
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+    }
+`;
+
+const Work = styled(User)`
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
+`;
+
