@@ -1,13 +1,16 @@
 import styled from 'styled-components'
 import React from 'react'
+import LeftSide from './LeftSide';
+import Main from './Main';
+import RightSide from './RightSide';
 
 export default function Home(props) {
   return (
     <Container>
         <Layout>
-            <div>left-side</div>
-            <div>Middle</div>
-            <div>Right-side</div>
+            <LeftSide />
+            <Main />
+            <RightSide />
         </Layout>
     </Container>
   )
